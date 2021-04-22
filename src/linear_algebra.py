@@ -6,30 +6,72 @@ Matrix = List[List[float]]
 
 
 def add(v: Vector, w: Vector) -> Vector:
-    """Adds corresponding elements"""
+    """add to vectors together
+
+    Args:
+        v (Vector): input vector
+        w (Vector): input vector
+
+    Returns:
+        Vector: added vector
+    """
     assert len(v) == len(w), "vectors must be of same length"
 
     return [v_i + w_i for v_i, w_i in zip(v, w)]
 
 def subtract(v: Vector, w: Vector) -> Vector:
-    """Subtracts corresponding elements"""
+    """
+    Subtracts corresponding elements
+
+    Args:
+        v (Vector): input vector
+        w (Vector): input vector
+
+    Returns:
+        Vector: subtracted vector
+    """
     assert len(v) == len(w), "vectors must be of same length"
 
     return [v_i - w_i for v_i, w_i in zip(v, w)]
 
 def dot(v: Vector, w: Vector) -> float:
-    """Computes v_1 * w_1 + ... + v_n * w_n"""
+    """
+    Computes v_1 * w_1 + ... + v_n * w_n
 
+    Args:
+        v (Vector): input vector
+        w (Vector): input vector
+
+    Returns:
+        float: dot product of input vectord
+    """
     assert len(v) == len(w), "vectors must be of same length"
 
     return sum(v_i * w_i for v_i, w_i in zip(v, w))
 
 def scalar_multiply(c: float, v: Vector) -> Vector:
-    """Multiplies every element by c"""
+    """
+    Multiplies every element by c
+
+    Args:
+        c (float): input scalar
+        v (Vector): input vector
+
+    Returns:
+        Vector: vector ater multiplied by scalar
+    """
     return [c * v_i for v_i in v]
 
 def vector_sum(vectors: List[Vector]) -> Vector:
-    """Sums all corresponding elements"""
+    """
+    Sums all corresponding elements
+
+    Args:
+        vectors (List[Vector]): list of vectors to be added
+
+    Returns:
+        Vector: ?
+    """
     assert vectors, "no vectors provided!"
 
     num_elements = len(vectors[0])
@@ -37,7 +79,15 @@ def vector_sum(vectors: List[Vector]) -> Vector:
     return [sum(vector[i] for vector in vectors) for i in range(num_elements)]
 
 def vector_mean(vectors: List[Vector]) -> Vector:
-    """Computes the element-wise average"""
+    """
+    Computes the element-wise average
+
+    Args:
+        vectors (List[Vector]): list of vectors
+
+    Returns:
+        Vector: ?
+    """
     n = len(vectors)
     return scalar_multiply(1/n, vector_sum(vectors))
 
